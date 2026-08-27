@@ -268,6 +268,16 @@
             line-height: 1.7;
         }
 
+        .mockups-image {
+            display: block;
+            width: min(100%, 1180px);
+            max-height: 72vh;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -628,7 +638,7 @@
                 Yene Verify
             </div>
             <div style="display:flex; align-items:center; gap:1rem;">
-                <div class="slide-counter">Slide <span id="current">1</span> / 23</div>
+                <div class="slide-counter">Slide <span id="current">1</span> / 24</div>
                 <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Toggle Fullscreen"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
             </div>
         </div>
@@ -1046,6 +1056,15 @@
                 <div class="luxury-divider"></div>
                 <p class="slide-subtitle">Questions?</p>
                 <p class="slide-body">Let's build a safer Ethiopia — one verification at a time.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 24: APP MOCKUPS -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2 class="slide-title"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Yene Verify App Preview</h2>
+                <div class="luxury-divider"></div>
+                <img class="mockups-image" src="yene-verify-app-mockups.svg" alt="Yene Verify mobile verification screens, merchant dashboard, and sub-merchant dashboard">
             </div>
         </div>
 
