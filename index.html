@@ -278,6 +278,111 @@
             box-shadow: var(--shadow);
         }
 
+        .test-app-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin: 0 0 1rem;
+            padding: 0.85rem 1.35rem;
+            border: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--green), var(--green-deep));
+            color: white;
+            font: 800 1rem inherit;
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(8, 127, 63, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .test-app-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(8, 127, 63, 0.32); }
+
+        .app-demo {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            background: rgba(9, 32, 22, 0.78);
+            backdrop-filter: blur(14px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .app-demo.open { opacity: 1; visibility: visible; }
+
+        .app-demo-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255,255,255,.4);
+            border-radius: 50%;
+            background: rgba(255,255,255,.14);
+            color: white;
+            font-size: 1.35rem;
+            cursor: pointer;
+        }
+
+        .phone-frame {
+            width: min(390px, 94vw);
+            height: min(790px, 90vh);
+            padding: 10px;
+            border: 1px solid #355345;
+            border-radius: 42px;
+            background: #10291f;
+            box-shadow: 0 30px 90px rgba(0,0,0,.45), inset 0 0 0 2px #426251;
+            transform: translateY(24px) scale(.96);
+            transition: transform .4s cubic-bezier(.22,.61,.36,1);
+        }
+
+        .app-demo.open .phone-frame { transform: translateY(0) scale(1); }
+
+        .phone-screen {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 33px;
+            background: #f4faf6;
+            color: var(--text-primary);
+        }
+
+        .phone-notch { position: absolute; z-index: 3; top: 0; left: 50%; width: 112px; height: 25px; transform: translateX(-50%); border-radius: 0 0 18px 18px; background: #10291f; }
+        .app-status { display: flex; justify-content: space-between; padding: 1rem 1.25rem .35rem; font-size: .72rem; font-weight: 800; }
+        .app-page { height: calc(100% - 76px); overflow-y: auto; padding: .8rem 1.15rem 1rem; animation: appPageIn .35s ease both; }
+        .app-page h2 { margin: .35rem 0 .25rem; font-size: 1.55rem; }
+        .app-page p { margin: 0; color: var(--gray); font-size: .82rem; line-height: 1.45; }
+        .app-card { margin-top: .8rem; padding: 1rem; border: 1px solid #d7e8dd; border-radius: 16px; background: #fff; box-shadow: 0 8px 20px rgba(4,85,45,.06); }
+        .app-hero { padding: 1.15rem; border-radius: 18px; background: linear-gradient(135deg, #0b9a50, #04552d); color: #fff; box-shadow: 0 12px 24px rgba(4,85,45,.2); }
+        .app-hero p { color: #d7f1df; }
+        .app-value { margin-top: .45rem; font-size: 2.3rem; font-weight: 900; }
+        .app-label { color: var(--gray); font-size: .73rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+        .app-action { display: flex; align-items: center; gap: .8rem; width: 100%; margin-top: .75rem; padding: .9rem; border: 1px solid #d7e8dd; border-radius: 14px; background: #fff; color: var(--text-primary); text-align: left; font: 700 .9rem inherit; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+        .app-action:hover, .app-action:active { transform: scale(.98); border-color: var(--green); background: #e9f7ef; }
+        .app-action strong { display: block; }
+        .app-action small { display: block; margin-top: .2rem; color: var(--gray); font-weight: 400; }
+        .app-icon { display: grid; flex: 0 0 38px; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #e9f7ef; color: var(--green); font-size: 1.1rem; }
+        .app-primary { justify-content: center; margin-top: 1rem; border: 0; background: var(--green); color: #fff; text-align: center; }
+        .app-primary:hover, .app-primary:active { background: var(--green-deep); }
+        .app-nav { position: absolute; right: 0; bottom: 0; left: 0; display: flex; justify-content: space-around; padding: .7rem .45rem .85rem; border-top: 1px solid #d7e8dd; background: rgba(255,255,255,.95); }
+        .app-nav button { border: 0; background: none; color: #84968c; font: 700 .65rem inherit; cursor: pointer; }
+        .app-nav button.active { color: var(--green); }
+        .app-nav i { display: block; margin-bottom: .25rem; font-size: 1.1rem; }
+        .app-back { border: 0; background: none; color: var(--green); font-size: 1.1rem; cursor: pointer; }
+        .result-mark { display: grid; width: 82px; height: 82px; margin: 1.5rem auto 1rem; place-items: center; border-radius: 50%; background: #e1f4e8; color: var(--green); font-size: 2.5rem; animation: resultPop .5s cubic-bezier(.22,.61,.36,1) both; }
+        .result-card { display: flex; justify-content: space-between; padding: .8rem 0; border-bottom: 1px solid #e4eee7; font-size: .86rem; }
+        .result-card span:first-child { color: var(--gray); }
+        .mini-chart { display: flex; align-items: end; gap: .45rem; height: 100px; margin-top: 1rem; padding: .6rem; border-bottom: 1px solid #d7e8dd; }
+        .mini-chart i { flex: 1; border-radius: 6px 6px 0 0; background: linear-gradient(#0b9a50, #b8dfc4); }
+        .app-switcher { display: flex; gap: .5rem; margin-top: .9rem; overflow-x: auto; }
+        .app-switcher button { padding: .45rem .7rem; border: 1px solid #c9dfd0; border-radius: 99px; background: #fff; color: var(--gray); font: 700 .7rem inherit; white-space: nowrap; cursor: pointer; }
+        .app-switcher button.active { border-color: var(--green); background: #e9f7ef; color: var(--green); }
+
+        @keyframes appPageIn { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes resultPop { from { opacity: 0; transform: scale(.5); } to { opacity: 1; transform: scale(1); } }
+
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1064,7 +1169,26 @@
             <div class="slide-content">
                 <h2 class="slide-title"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Yene Verify App Preview</h2>
                 <div class="luxury-divider"></div>
+                <button class="test-app-btn" onclick="openTestApp()"><i class="fa-solid fa-play" aria-hidden="true"></i> Open Test App</button>
                 <img class="mockups-image" src="yene-verify-app-mockups.svg" alt="Yene Verify mobile verification screens, merchant dashboard, and sub-merchant dashboard">
+            </div>
+        </div>
+
+        <!-- Interactive mobile demo -->
+        <div class="app-demo" id="appDemo" aria-hidden="true" role="dialog" aria-label="Yene Verify interactive test app">
+            <button class="app-demo-close" onclick="closeTestApp()" aria-label="Close test app">&times;</button>
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <div class="app-status"><span>9:41</span><span><i class="fa-solid fa-signal"></i> &nbsp; <i class="fa-solid fa-battery-three-quarters"></i></span></div>
+                    <div id="appScreen" class="app-page"></div>
+                    <nav class="app-nav" aria-label="Test app navigation">
+                        <button data-screen="home" onclick="showAppScreen('home')"><i class="fa-solid fa-house"></i>Home</button>
+                        <button data-screen="verify" onclick="showAppScreen('verify')"><i class="fa-solid fa-camera"></i>Verify</button>
+                        <button data-screen="history" onclick="showAppScreen('history')"><i class="fa-solid fa-clock-rotate-left"></i>History</button>
+                        <button data-screen="merchant" onclick="showAppScreen('merchant')"><i class="fa-solid fa-chart-line"></i>Business</button>
+                    </nav>
+                </div>
             </div>
         </div>
 
@@ -1096,6 +1220,58 @@
             };
             dotsContainer.appendChild(dot);
         }
+
+        const appScreen = document.getElementById('appScreen');
+        const appDemo = document.getElementById('appDemo');
+
+        function openTestApp() {
+            appDemo.classList.add('open');
+            appDemo.setAttribute('aria-hidden', 'false');
+            showAppScreen('home');
+        }
+
+        function closeTestApp() {
+            appDemo.classList.remove('open');
+            appDemo.setAttribute('aria-hidden', 'true');
+        }
+
+        function showAppScreen(screen) {
+            const screens = {
+                home: `
+                    <h2>Good morning, Mekdes</h2><p>Your store is protected today.</p>
+                    <div class="app-hero"><p>Verified today</p><div class="app-value">24</div><p><i class="fa-solid fa-arrow-trend-up"></i> 18% more than yesterday</p></div>
+                    <button class="app-action app-primary" onclick="showAppScreen('verify')"><i class="fa-solid fa-camera"></i> Start verification</button>
+                    <div class="app-card"><div class="app-label">Recent check</div><div class="result-card"><span>5,500 ETB  /  CBE</span><strong class="green">Verified</strong></div><div class="result-card"><span>850 ETB  /  Awash</span><strong class="green">Verified</strong></div><button class="app-action" onclick="showAppScreen('history')"><i class="fa-solid fa-clock-rotate-left app-icon"></i><span>View full history</span></button></div>`,
+                verify: `
+                    <button class="app-back" onclick="showAppScreen('home')"><i class="fa-solid fa-arrow-left"></i> Back</button><h2>Verify payment</h2><p>Choose the fastest way to read the receipt.</p>
+                    <button class="app-action app-primary" onclick="runVerification()"><i class="fa-solid fa-camera"></i><span><strong>Take a photo</strong><small>Recommended</small></span></button>
+                    <button class="app-action" onclick="runVerification()"><i class="fa-solid fa-paste app-icon"></i><span><strong>Paste receipt text</strong><small>Read an SMS or receipt link</small></span></button>
+                    <button class="app-action" onclick="runVerification()"><i class="fa-solid fa-qrcode app-icon"></i><span><strong>Scan QR code</strong><small>Use any payment QR receipt</small></span></button>
+                    <button class="app-action" onclick="runVerification()"><i class="fa-solid fa-image app-icon"></i><span><strong>Upload screenshot</strong><small>PNG or JPG receipt image</small></span></button>`,
+                loading: `
+                    <div style="text-align:center;padding-top:5rem"><div class="result-mark"><i class="fa-solid fa-spinner fa-spin"></i></div><h2>Checking payment...</h2><p>Matching the receipt with the bank record.</p></div>`,
+                result: `
+                    <button class="app-back" onclick="showAppScreen('verify')"><i class="fa-solid fa-arrow-left"></i> Verify another</button><div class="result-mark"><i class="fa-solid fa-check"></i></div><h2 style="text-align:center">Payment verified</h2><p style="text-align:center">This receipt is genuine and has not been used before.</p>
+                    <div class="app-card"><div class="result-card"><span>Amount</span><strong>5,500 ETB</strong></div><div class="result-card"><span>Sender</span><strong>Abebe K.</strong></div><div class="result-card"><span>Bank</span><strong>Commercial Bank</strong></div><div class="result-card"><span>Reference</span><strong>CBE-84291</strong></div><button class="app-action app-primary" onclick="showAppScreen('home')">Done</button></div>`,
+                history: `
+                    <h2>Verification history</h2><p>Every check, safely recorded.</p><div class="app-card"><div class="result-card"><span>Today  •  10:42 AM</span><strong class="green">Verified</strong></div><div class="result-card"><span>5,500 ETB  /  CBE</span><strong>Abebe K.</strong></div><div class="result-card"><span>Today  •  09:18 AM</span><strong class="red">Duplicate</strong></div><div class="result-card"><span>1,200 ETB  /  Telebirr</span><strong>Flagged</strong></div><div class="result-card"><span>Yesterday</span><strong class="green">Verified</strong></div><div class="result-card"><span>850 ETB  /  Awash</span><strong>Verified</strong></div></div>`,
+                merchant: `
+                    <h2>Merchant overview</h2><p>Mekdes Trading PLC  /  This month</p><div class="app-switcher"><button class="active" onclick="showAppScreen('merchant')">Merchant</button><button onclick="showAppScreen('submerchant')">Sub-merchant</button></div><div class="app-card"><div class="app-label">Total checks</div><div class="app-value green">1,284</div><div class="result-card"><span>Verified payments</span><strong class="green">1,241</strong></div><div class="result-card"><span>Flagged receipts</span><strong class="red">43</strong></div><div class="mini-chart"><i style="height:42%"></i><i style="height:65%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:68%"></i><i style="height:94%"></i></div></div>`,
+                submerchant: `
+                    <h2>Sub-merchant dashboard</h2><p>Abebe Electronics  /  Today</p><div class="app-switcher"><button onclick="showAppScreen('merchant')">Merchant</button><button class="active" onclick="showAppScreen('submerchant')">Sub-merchant</button></div><div class="app-hero"><p>My verified payments</p><div class="app-value">86</div><p>48,250 ETB this month</p></div><div class="app-card"><div class="app-label">Recent payments</div><div class="result-card"><span>Dawit M.</span><strong class="green">2,400 ETB</strong></div><div class="result-card"><span>Sara T.</span><strong class="green">850 ETB</strong></div><div class="result-card"><span>Hana A.</span><strong class="green">1,100 ETB</strong></div></div>`
+            };
+            appScreen.innerHTML = screens[screen] || screens.home;
+            document.querySelectorAll('.app-nav button').forEach((button) => button.classList.toggle('active', button.dataset.screen === screen || (screen === 'submerchant' && button.dataset.screen === 'merchant')));
+        }
+
+        function runVerification() {
+            showAppScreen('loading');
+            window.setTimeout(() => showAppScreen('result'), 1300);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && appDemo.classList.contains('open')) closeTestApp();
+        });
 
         function goToSlide(index) {
             if (index < 0 || index >= totalSlides) return;
